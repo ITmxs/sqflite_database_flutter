@@ -24,8 +24,9 @@ class NoteCardWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     /// Pick colors from the accent colors based on index
+    var formatter = DateFormat('yyyy年MM月dd日 hh:mm:ss');
     final color = _lightColors[index % _lightColors.length];
-    final time = DateFormat.yMMMd().format(note.createdTime);
+    final time = formatter.format(note.createdTime);
     final minHeight = getMinHeight(index);
 
     return Card(

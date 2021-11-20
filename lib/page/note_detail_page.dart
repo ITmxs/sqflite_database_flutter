@@ -19,7 +19,7 @@ class NoteDetailPage extends StatefulWidget {
 class _NoteDetailPageState extends State<NoteDetailPage> {
   late Note note;
   bool isLoading = false;
-
+  var formatter = DateFormat('yyyy年MM月dd日 hh:mm:ss');
   @override
   void initState() {
     super.initState();
@@ -57,7 +57,7 @@ class _NoteDetailPageState extends State<NoteDetailPage> {
                     ),
                     SizedBox(height: 8),
                     Text(
-                      DateFormat.yMMMd().format(note.createdTime),
+                      formatter.format(note.createdTime),
                       style: TextStyle(color: Colors.white38),
                     ),
                     SizedBox(height: 8),
