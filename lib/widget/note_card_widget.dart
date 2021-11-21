@@ -23,11 +23,14 @@ class NoteCardWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    /// Pick colors from the accent colors based on index
+    /// 根据索引随机选择颜色
     var formatter = DateFormat('yyyy年MM月dd日 hh:mm:ss');
     final color = _lightColors[index % _lightColors.length];
     final time = formatter.format(note.createdTime);
+
     final minHeight = getMinHeight(index);
+
+    //当然也可以采用瀑布流，这儿有一个插件值得 推荐
 
     return Card(
       color: color,
@@ -49,6 +52,15 @@ class NoteCardWidget extends StatelessWidget {
                 color: Colors.black,
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
+              ),
+            ),
+            Text(
+              note.description,
+              maxLines: 5,
+              overflow: TextOverflow.ellipsis,
+              style: TextStyle(
+                color: Colors.black45,
+                fontSize: 16,
               ),
             ),
           ],
