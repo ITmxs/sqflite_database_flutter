@@ -85,9 +85,11 @@ class _NoteDetailPageState extends State<NoteDetailPage> {
   Widget deleteButton() => IconButton(
         icon: Icon(Icons.delete),
         onPressed: () async {
+//对于删除我们可以增加点提示
+
           await NotesDatabase.instance.delete(widget.noteId);
 
-          Navigator.of(context).pop();
+          Navigator.of(context).pop(true); //关闭对话框
         },
       );
 }
